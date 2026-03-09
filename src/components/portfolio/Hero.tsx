@@ -1,11 +1,44 @@
+import { useEffect, useState } from "react";
+
+const roles = ["Full Stack Developer", "React & Node.js", "API & Cloud", "UI/UX Enthusiast"];
+
 export default function Hero() {
+  
+  const [index, setIndex] = useState(0);
+  const [displayed, setDisplayed] = useState("");
+  const [typing, setTyping] = useState(true);
+
+  useEffect(() => {
+    const current = roles[index];
+    if (typing) {
+      if (displayed.length < current.length) {
+        const t = setTimeout(() => setDisplayed(current.slice(0, displayed.length + 1)), 60);
+        return () => clearTimeout(t);
+      } else {
+        const t = setTimeout(() => setTyping(false), 1800);
+        return () => clearTimeout(t);
+      }
+    } else {
+      if (displayed.length > 0) {
+        const t = setTimeout(() => setDisplayed(displayed.slice(0, -1)), 30);
+        return () => clearTimeout(t);
+      } else {
+        const t = setTimeout(() => {
+          setIndex((i) => (i + 1) % roles.length);
+          setTyping(true);
+        }, 500);
+        return () => clearTimeout(t);
+      }
+    }
+  }, [displayed, typing, index]);
+
   return (
       <div className="relative min-h-screen bg-[#0a0a0a] text-white flex flex-col items-center justify-center px-4 overflow-hidden">
         
         <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-[500px] h-[500px] bg-emerald-500/10 rounded-full blur-[120px] pointer-events-none"></div>
 
         <nav className="absolute top-0 w-full max-w-7xl flex justify-between items-center p-8">
-          <div className="text-2xl font-bold text-emerald-500">ML<span className="text-white">.</span></div>
+          <div className="text-2xl font-bold text-emerald-500">MG<span className="text-white">.</span></div>
           <div className="hidden md:flex gap-8 text-sm text-gray-400">
             <a href="#sobre" className="hover:text-white transition">Sobre</a>
             <a href="#skills" className="hover:text-white transition">Skills</a>
@@ -23,12 +56,15 @@ export default function Hero() {
           </div>
 
           <h1 className="text-6xl md:text-8xl font-black tracking-tight mb-4">
-            Matheus <span className="text-cyan-400">Luiz</span>
+            Manoel <span className="text-cyan-400">Gomes</span>
           </h1>
 
-          <h2 className="text-2xl md:text-3xl font-mono text-gray-400 mb-8 tracking-widest uppercase">
-            API & Cloud<span className="text-emerald-500 animate-pulse">|</span>
-          </h2>
+        <div className="h-10 flex items-center justify-center mb-6">
+          <span className="text-xl md:text-2xl text-gray-400 font-mono">
+            {displayed}
+            <span className="animate-pulse text-[#00f5a0]">|</span>
+          </span>
+        </div>
 
           <p className="max-w-xl text-gray-500 text-sm md:text-base leading-relaxed mb-10">
             Transformo ideias em produtos digitais robustos e escaláveis, do back-end ao 
