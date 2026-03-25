@@ -12,7 +12,7 @@ export default function About() {
           
           <img 
             src="https://img.freepik.com/fotos-gratis/close-up-de-um-jovem-bonito-irritado-de-oculos-olhando-para-a-frente-isolada-na-parede-rosa_141793-74123.jpg?t=st=1773201516~exp=1773205116~hmac=b74e2a7ced9b50ae9e78f8f00fe0679749b7f72364f76888de04bcfabe2dcb2e&w=1480"
-            alt="Matheus Luiz" 
+            alt="Manoel Gomes" 
             className="w-[380px] h-[380px] object-cover rounded-3xl grayscale group-hover:grayscale-0 transition-all duration-300 shadow-2xl shadow-emerald-950/20"
           />
         </div>
@@ -31,7 +31,7 @@ export default function About() {
 
           <div className="space-y-6 text-gray-400 text-base md:text-lg leading-relaxed max-w-2xl mx-auto md:mx-0">
             <p>
-              Olá! Sou Matheus Luiz, desenvolvedor full stack com mais de 5 anos de experiência criando aplicações web modernas, performáticas e escaláveis.
+              Olá! Sou Manoel Gomes, desenvolvedor full stack com mais de 5 anos de experiência criando aplicações web modernas, performáticas e escaláveis.
             </p>
             <p>
               Trabalho com as principais tecnologias do mercado, tanto no front-end quanto no back-end. Adoro resolver problemas complexos com código elegante e soluções criativas.
