@@ -70,7 +70,7 @@ const Experience: React.FC = () => {
 
                     <div className="flex flex-wrap gap-2">
                       {exp.tech.map((t, i) => (
-                        <span key={i} className="px-3 py-1 bg-gray-950 border border-gray-800 text-gray-500 text-[10px] rounded-md uppercase tracking-wider">
+                        <span key={i} className="px-3 py-1 bg-gray-950 border border-gray-800 text-gray-400 text-[10px] rounded-md uppercase tracking-wider">
                           {t}
                         </span>
                       ))}
